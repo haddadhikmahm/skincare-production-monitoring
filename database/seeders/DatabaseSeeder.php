@@ -63,16 +63,16 @@ class DatabaseSeeder extends Seeder
         $manager->assignRole($managerRole);
 
         // Workstations
-        $stations = ['Mixing', 'Filling', 'Capping', 'Labeling', 'Packing', 'Finished Goods'];
+        $stations = ['Mixing', 'Filling', 'Packing'];
         foreach ($stations as $station) {
             Workstation::create(['name' => $station, 'type' => 'Production']);
         }
 
         // Work Orders based on screenshot
-        WorkOrder::create(['order_number' => 'WO-0325', 'product_name' => 'Brightening Cream 50ml', 'quantity' => 1000, 'status' => 'In Progress', 'created_by' => $spv->id, 'created_at' => '2025-05-26 08:12:00']);
-        WorkOrder::create(['order_number' => 'WO-0324', 'product_name' => 'Facial Wash 100ml', 'quantity' => 2000, 'status' => 'In Progress', 'created_by' => $spv->id, 'created_at' => '2025-05-26 07:45:00']);
-        WorkOrder::create(['order_number' => 'WO-0323', 'product_name' => 'Toner 100ml', 'quantity' => 1500, 'status' => 'Completed', 'created_by' => $spv->id, 'created_at' => '2025-05-25 14:20:00']);
-        WorkOrder::create(['order_number' => 'WO-0322', 'product_name' => 'Day Cream 20g', 'quantity' => 1000, 'status' => 'Completed', 'created_by' => $spv->id, 'created_at' => '2025-05-25 10:15:00']);
-        WorkOrder::create(['order_number' => 'WO-0321', 'product_name' => 'Serum 20ml', 'quantity' => 1200, 'status' => 'Completed', 'created_by' => $spv->id, 'created_at' => '2025-05-24 09:30:00']);
+        WorkOrder::create(['order_number' => 'WO-0325', 'product_name' => 'Brightening Cream 50ml (Filling)', 'quantity' => 1000, 'unit' => 'pcs', 'status' => 'In Progress', 'created_by' => $spv->id, 'created_at' => '2025-05-26 08:12:00']);
+        WorkOrder::create(['order_number' => 'WO-0324', 'product_name' => 'Facial Wash 100ml (Mixing)', 'quantity' => 200, 'unit' => 'kg', 'status' => 'In Progress', 'created_by' => $spv->id, 'created_at' => '2025-05-26 07:45:00']);
+        WorkOrder::create(['order_number' => 'WO-0323', 'product_name' => 'Toner 100ml (Packing)', 'quantity' => 1500, 'unit' => 'pcs', 'status' => 'Completed', 'created_by' => $spv->id, 'created_at' => '2025-05-25 14:20:00']);
+        WorkOrder::create(['order_number' => 'WO-0322', 'product_name' => 'Day Cream 20g (Mixing)', 'quantity' => 50, 'unit' => 'kg', 'status' => 'Completed', 'created_by' => $spv->id, 'created_at' => '2025-05-25 10:15:00']);
+        WorkOrder::create(['order_number' => 'WO-0321', 'product_name' => 'Serum 20ml (Filling)', 'quantity' => 1200, 'unit' => 'pcs', 'status' => 'Completed', 'created_by' => $spv->id, 'created_at' => '2025-05-24 09:30:00']);
     }
 }

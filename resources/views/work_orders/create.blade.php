@@ -17,8 +17,15 @@
                     <input type="text" name="product_name" class="form-control" placeholder="Contoh: Day Cream 20g" required>
                 </div>
                 <div class="form-group" style="margin-bottom:0;">
-                    <label>Kuantitas Target (Pcs / Gram)</label>
+                    <label>Kuantitas Target</label>
                     <input type="number" name="quantity" class="form-control" placeholder="Contoh: 1000" required>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>Satuan (Unit)</label>
+                    <select name="unit" class="form-control" required>
+                        <option value="pcs">Pcs</option>
+                        <option value="kg">Kg</option>
+                    </select>
                 </div>
             </div>
             

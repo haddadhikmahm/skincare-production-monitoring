@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             <span style="font-weight: 700; color: #1e293b;">{{ number_format($wo->quantity, 0, ',', '.') }}</span>
-                            <span style="color: #94a3b8; font-size: 0.78rem; font-weight: 500;"> pcs</span>
+                            <span style="color: #94a3b8; font-size: 0.78rem; font-weight: 500;"> {{ $wo->unit ?? 'pcs' }}</span>
                         </td>
                         <td>
                             <span class="flow-badge {{ $wo->status == 'Completed' ? 'badge-berjalan' : ($wo->status == 'In Progress' ? 'badge-selesai' : 'badge-menunggu') }}">

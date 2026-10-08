@@ -18,8 +18,15 @@
                     <input type="text" name="product_name" class="form-control" value="{{ old('product_name', $workOrder->product_name) }}" required>
                 </div>
                 <div class="form-group" style="margin-bottom:0;">
-                    <label>Kuantitas Target (Pcs / Gram)</label>
+                    <label>Kuantitas Target</label>
                     <input type="number" name="quantity" class="form-control" value="{{ old('quantity', $workOrder->quantity) }}" required>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>Satuan (Unit)</label>
+                    <select name="unit" class="form-control" required>
+                        <option value="pcs" {{ $workOrder->unit == 'pcs' ? 'selected' : '' }}>Pcs</option>
+                        <option value="kg" {{ $workOrder->unit == 'kg' ? 'selected' : '' }}>Kg</option>
+                    </select>
                 </div>
                 <div class="form-group" style="margin-bottom:0;">
                     <label>Status Work Order</label>

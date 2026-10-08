@@ -18,11 +18,13 @@ class WorkOrderController extends Controller
             'order_number' => 'required|unique:work_orders',
             'product_name' => 'required',
             'quantity' => 'required|numeric',
+            'unit' => 'required|in:kg,pcs',
         ]);
         WorkOrder::create([
             'order_number' => $request->order_number,
             'product_name' => $request->product_name,
             'quantity' => $request->quantity,
+            'unit' => $request->unit,
             'status' => 'Pending',
             'created_by' => auth()->id(),
         ]);
@@ -38,12 +40,14 @@ class WorkOrderController extends Controller
             'order_number' => 'required|unique:work_orders,order_number,'.$workOrder->id,
             'product_name' => 'required',
             'quantity' => 'required|numeric',
+            'unit' => 'required|in:kg,pcs',
             'status' => 'required|in:Pending,In Progress,Completed,On Hold',
         ]);
         $workOrder->update([
             'order_number' => $request->order_number,
             'product_name' => $request->product_name,
             'quantity' => $request->quantity,
+            'unit' => $request->unit,
             'status' => $request->status,
         ]);
         return redirect()->route('work-orders.index')->with('success', 'Work Order berhasil diperbarui!');

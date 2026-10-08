@@ -61,7 +61,8 @@
                     
                     // Icons based on string matching
                     $icon = 'fa-gear';
-                    if(str_contains(strtolower($ws->name), 'mix')) $icon = 'fa-blender';
+                    $dummyUnit = 'pcs';
+                    if(str_contains(strtolower($ws->name), 'mix')) { $icon = 'fa-blender'; $dummyUnit = 'kg'; }
                     if(str_contains(strtolower($ws->name), 'fill')) $icon = 'fa-bottle-water';
                     if(str_contains(strtolower($ws->name), 'cap')) $icon = 'fa-prescription-bottle';
                     if(str_contains(strtolower($ws->name), 'label')) $icon = 'fa-tag';
@@ -76,10 +77,10 @@
                     <span class="flow-badge {{ $badgeClass }}">{{ $status }}</span>
                     @if($status == 'Berjalan' || $status == 'Bottleneck')
                         <div class="flow-time" @if($status == 'Bottleneck') style="color:var(--danger);" @endif>01:25:32</div>
-                        <div class="flow-detail">Batch: B-0325<br>Target: 1.000 pcs</div>
+                        <div class="flow-detail">Batch: B-0325<br>Target: 1.000 {{ $dummyUnit }}</div>
                     @else
                         <div class="flow-time">-</div>
-                        <div class="flow-detail">Batch: -<br>Target: 1.000 pcs</div>
+                        <div class="flow-detail">Batch: -<br>Target: 1.000 {{ $dummyUnit }}</div>
                     @endif
                 </div>
                 @endforeach
